@@ -99,6 +99,7 @@ public class VisitorController {
     // 방명록 id로 조회 : rest방식 호출 결과 : json
     // return 값이 Visitor 객체인데 json으로 변경되어 다운로드된다
     // return  값이 ResponseEntity<Visitor> 일때는 data는 json으로 상태코드로 리턴가능
+    // http://localhost:9090/one?id=1
     @GetMapping(value = "/one", produces = "application/json; charset=utf-8")
     @ResponseBody
     public ResponseEntity<Visitor> one(@RequestParam Integer id) {
