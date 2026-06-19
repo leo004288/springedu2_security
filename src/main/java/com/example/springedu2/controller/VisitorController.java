@@ -1,8 +1,7 @@
 package com.example.springedu2.controller;
 
-import com.example.springedu2.VisitorRepository;
+import com.example.springedu2.repository.VisitorRepository;
 import com.example.springedu2.entity.Visitor;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
