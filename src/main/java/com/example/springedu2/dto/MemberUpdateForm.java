@@ -8,15 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MemberCreateForm {
-
-    @NotBlank(message = "아이디는 필수입니다")  // NULL, "(빈문자열)", "(공백)"
-    @Size(min = 4, max = 30, message = "아이디는 4~30자로 입력하세요")
-    private String username;
-
-    @NotBlank(message = "비밀번호는 필수입니다")
-    @Size(min = 4, max = 100, message = "비밀번호는 4자이상 입력하세요")
-    private String password;
+public class MemberUpdateForm {
 
     @NotBlank(message = "이름은 필수입니다")
     @Size(max = 50, message = "이름은 50자 이내로 입력하세요")
@@ -27,6 +19,10 @@ public class MemberCreateForm {
     @Size(max = 320, message = "이메일은 320자 이내로 입력하세요")
     private String email;
 
+    @Size(max = 100, message = "비밀번호는 100자 이내로 입력하세요")
+    private String password;
+
     private String role = "USER";
+    private boolean enabled = true;
 
 }

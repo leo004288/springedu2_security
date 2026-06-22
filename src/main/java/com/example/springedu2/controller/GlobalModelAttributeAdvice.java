@@ -112,5 +112,7 @@ public class GlobalModelAttributeAdvice {
 
         // Model에 관리자 여부 추가
         model.addAttribute("isAdmin", isAdmin);
+
+        System.out.println("model:" + model.toString());
     }
 }
