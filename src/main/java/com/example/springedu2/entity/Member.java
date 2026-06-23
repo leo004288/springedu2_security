@@ -9,7 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
-@Entity
+@Entity                // db table
 @Table(name="members") // table 이름 변경
 @Getter
 @Setter

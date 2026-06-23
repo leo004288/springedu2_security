@@ -47,8 +47,8 @@ public class SecurityConfig {
                     // post/login
                     // spring security 가 username password 읽어서 인증처리한다. : 자동
                     // UserDetailsService 안의 loadUserByusername() 을 실행해서 db 검색 로그인처리까지 진행
-                    .defaultSuccessUrl("/visitorMain.html", true)
-                    // 로그인이 성공하면 "/" 나 "/visitorMain.html"
+                    .defaultSuccessUrl("/visitorMain", true)
+                    // 로그인이 성공하면 "/" 나 "/visitorMain"
                     // 비밀번호가 틀리거나 사용자가 없으면 '/login?error 또는 .failureUrl("/login?error")로 이동해서 thymeleaf 에서 처리
                     // <p th:if="${param.error}" class="error"> 아이디와 비빌번호가 올바르지 x </p>
                     .permitAll() // 로그인 페이지는 누구나 접근가능하다

@@ -59,6 +59,12 @@ public class MemberController {
         return "redirect:/login";
     }
 
+    // 방명록으로
+    @GetMapping("/visitorMain")
+    public String visitorMain(Model model) {
+        return "visitorMain";
+    }
+
     // 내 정보
     @GetMapping("/members/me")
     public String myPage(Authentication authentication, Model model) {
@@ -94,6 +100,7 @@ public class MemberController {
             return "memberMyPage";
         }
 
+        // 반드시 redirect 할때만 사용가능하다. redirect:/login
         redirectAttributes.addFlashAttribute("msg",
                 "재 정보가 수정되었습니다");
 
