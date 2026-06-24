@@ -1,0 +1,50 @@
+services:
+  postgres-container:
+    image: postgres:15-alpine
+    container_name: postgres-container
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: edudb
+      POSTGRES_USER: jdbctest
+      POSTGRES_PASSWORD: jdbctest
+      TZ: Asia/Seoul
+    volumes:
+      - springedu2-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jdbctest -d edudb"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - springboot-postgres-net
+
+  springedu2-container:
+    image: leo004288/kggspringedu2:1.0
+    container_name: springedu2-container
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    environment:
+      # PostgreSQL 연결 URL로 변경 (드라이버 주소 및 포트 5432 참고)
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-container:5432/edudb?stringtype=unspecified
+      SPRING_DATASOURCE_USERNAME: jdbctest
+      SPRING_DATASOURCE_PASSWORD: jdbctest
+    depends_on:
+      postgres-container:
+        condition: service_healthy
+    networks:
+      - springboot-postgres-net
+
+volumes:
+  springedu2-postgres-data:
+    name: springedu2-postgres-data
+
+networks:
+  springboot-postgres-net:
+    name: springboot-postgres-net
+    driver: bridge
+
+# https://wikidocs.net/182432
