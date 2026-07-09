@@ -1,5 +1,5 @@
 server:
-  port: 9090
+  port: 8080
 
 spring:
   application:
@@ -14,25 +14,31 @@ spring:
 #    password: jdbctest
 
 # oracle 설정
-#  datasource:
-#   driver-class-name: oracle.jdbc.OracleDriver
-#   url: jdbc:oracle:thin:@localhost:1521:xe
-#   username: spring
-#   password: 1234
+  datasource:
+#    driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@localhost:1521:xe
+#    username: spring
+#    password: 1234
+
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: spring
+    password: 1234
 
 # postgresql 설정
-  datasource:
-   driver-class-name: org.postgresql.Driver
-   url: jdbc:postgresql://localhost:5432/edudb?stringtype=unspecified
-   username: jdbctest
-   password: jdbctest
+#  datasource:
+#   driver-class-name: org.postgresql.Driver
+#   url: jdbc:postgresql://localhost:5432/edudb?stringtype=unspecified
+#   username: jdbctest
+#   password: jdbctest
 
   jpa:
     # database-platform: org.hibernate.dialect.MySQLDialect
-    # database-platform: org.hibernate.dialect.OracleDialect
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.OracleDialect
+    # database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
+      #ddl-auto: none
 
     show-sql: true
     properties:
