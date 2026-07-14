@@ -21,7 +21,7 @@ public class SecurityConfig {
                             "/","/index.html",
                             "/css/**", "/img/**", "/js/**", "/fonts/**",
                             "/login", "/members/register"
-                    ).permitAll() // 로그인 없이 사용가능
+                    ).permitAll() // 로그인 없이 사용가능.
                     .requestMatchers("/admin/**", "/vupdate", "/vdelete").hasRole("ADMIN")
                     .requestMatchers(
                             "/visitorMain.html", "/visitorFORM.html",
